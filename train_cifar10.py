@@ -83,7 +83,7 @@ def eval_step(model, state, x, y):
 if __name__ == '__main__':
     key = jax.random.PRNGKey(SEED)
     model_key, train_key = jax.random.split(key)
-    model, state = eqx.nn.make_with_state(TinyAlexNet)(n_classes=N_CLASSES, key=key)
+    model, state = eqx.nn.make_with_state(TinyGoogLeNet)(n_classes=N_CLASSES, key=key)
     opt_state = optimizer.init(eqx.filter(model, eqx.is_array))
     
     train_ds, test_ds = get_dataloaders(BATCH_SIZE)
@@ -117,4 +117,4 @@ if __name__ == '__main__':
               f"Val Acc: {val_acc*100:.2f}% | "
               f"Time: {time.time() - start_time:.2f}s")
         
-    eqx.tree_serialise_leaves("tiny_alexnet_cifar10.eqx", model)
+    eqx.tree_serialise_leaves("tiny_googlenet_cifar10.eqx", model)

@@ -69,7 +69,7 @@ class TinyGoogLeNet(eqx.Module):
     head: nn.Linear
     
     def __init__(self, n_classes, key=None):
-        keys = jr.split(key, 20)
+        keys = jr.split(key, 8)
         
         self.stem = ConvBlock(3, 64, kernel_size=3, padding=1, key=keys[0])
         
