@@ -6,8 +6,8 @@ import jax.numpy as jnp
 import numpy as np
 import tensorflow as tf
 import tensorflow_datasets as tfds
-from vision_models.tiny_alexnet import TinyAlexNet
-from vision_models.tiny_googlenet import TinyGoogLeNet
+from jax_models.tiny_alexnet import TinyAlexNet
+from jax_models.tiny_googlenet import TinyGoogLeNet
 
 N_CLASSES = 10
 LEARNING_RATE = 3e-4
